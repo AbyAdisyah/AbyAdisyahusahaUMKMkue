@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SliceofHeaven.Slipi - Premium Bakery Jakarta Barat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #D4A574; /* Warna coklat emas elegan */
+            --secondary: #8B4513; /* Coklat tua */
+            --accent: #FFF5EB; /* Krem muda */
+            --dark: #333333;
+            --light: #FFFFFF;
+        }
+        
+        body {
+            background-color: #f9f5f0;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .logo-text span {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--light);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* About Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            color: var(--secondary);
+            font-size: 36px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Menu Section */
+        .menu-section {
+            background-color: var(--accent);
+            padding: 60px 0;
+            border-radius: 20px;
+            margin-bottom: 60px;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .menu-item {
+            background-color: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu-item-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .menu-item-content {
+            padding: 20px;
+        }
+        
+        .menu-item-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .menu-item-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .menu-item-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .menu-item-desc {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .menu-item-badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 60px 0;
+            background-color: var(--light);
+            border-radius: 20px;
+            margin-bottom: 60px;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .contact-card {
+            background-color: var(--accent);
+            padding: 25px;
+            border-radius: 15px;
+            width: 250px;
+            transition: all 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .contact-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .contact-card a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 22px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        /* Location Section */
+        .location-section {
+            margin-bottom: 60px;
+        }
+        
+        .location-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .location-text {
+            flex: 1;
+        }
+        
+        .location-text h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .location-map {
+            flex: 1;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .location-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            
+            .contact-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-cookie-bite"></i></div>
+                <div class="logo-text">Sliceof<span>Heaven</span>.Slipi</div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Pesan Online</a></li>
+                    <li><a href="#location">Lokasi</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Premium Artisan Bakery di Slipi, Jakarta Barat</h1>
+            <p>Setiap potongan adalah perpaduan sempurna antara rasa, tekstur, dan keindahan. Kue premium buatan tangan dengan bahan pilihan terbaik.</p>
+            <a href="#menu" class="cta-button">Lihat Menu Kami</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="container" id="about">
+        <h2 class="section-title">Tentang Kami</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Kue Premium dengan Sentuhan Slipi</h3>
+                <p>SliceofHeaven.Slipi hadir sebagai bakery premium pertama di area Slipi, Jakarta Barat yang mengutamakan kualitas bahan, keahlian tangan, dan presentasi yang memukau.</p>
+                <p>Setiap kue kami dibuat dengan teliti menggunakan bahan-bahan premium seperti butter Eropa, coklat Belgia, dan vanilla alami. Kami percaya bahwa kue yang baik tidak hanya enak di lidah, tetapi juga memberikan pengalaman menyenangkan.</p>
+                <p>Dengan lokasi strategis di dekat Mall Plaza Slipi Jaya, kami siap memenuhi kebutuhan kue spesial Anda untuk acara keluarga, kantor, atau sekedar menikmati waktu santai dengan secangkir teh atau kopi.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Premium Bakery Interior">
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <h2 class="section-title">Menu Premium Kami</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 20px; font-size: 18px;">Pilih dari berbagai kue premium kami dengan harga Rp 50.000 - Rp 100.000. Semua kue dibuat fresh setiap hari dengan bahan pilihan terbaik.</p>
+            
+            <div class="menu-grid">
+                <!-- Menu Item 1 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Classic Premium Brownies" class="menu-item-img">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <div class="menu-item-name">Classic Premium Brownies</div>
+                            <div class="menu-item-price">Rp 75.000</div>
+                        </div>
+                        <p class="menu-item-desc">Brownies fudgy tebal dengan toping choco chips dan kacang kenari. Tekstur padat namun lembut di mulut.</p>
+                        <span class="menu-item-badge">Best Seller</span>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 2 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cheese Tartlet Box" class="menu-item-img">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <div class="menu-item-name">Cheese Tartlet Box</div>
+                            <div class="menu-item-price">Rp 90.000</div>
+                        </div>
+                        <p class="menu-item-desc">8 buah cheese tart mini dengan 3 varian rasa: original, greentea, dan chocolate. Crust renyah, filling lembut.</p>
+                        <span class="menu-item-badge">New</span>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 3 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1586788680434-30d324b2d46f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rainbow Lapis Legit Mini" class="menu-item-img">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <div class="menu-item-name">Rainbow Lapis Legit Mini</div>
+                            <div class="menu-item-price">Rp 95.000</div>
+                        </div>
+                        <p class="menu-item-desc">Kue seribu lapis dengan paduan rempah khas. Ukuran mini (15x15cm) cocok untuk keluarga kecil.</p>
+                        <span class="menu-item-badge">Spesial</span>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 4 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1547414368-ac947d00b91d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bundt Cake Glaze" class="menu-item-img">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <div class="menu-item-name">Bundt Cake Glaze</div>
+                            <div class="menu-item-price">Rp 80.000</div>
+                        </div>
+                        <p class="menu-item-desc">Bundt cake dengan bentuk unik dan glaze coklat atau lemon. Lembut, moist, dan tampilan Instagramable.</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 5 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1569929238190-869826b1bb05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Macarons Box" class="menu-item-img">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <div class="menu-item-name">Macarons Box</div>
+                            <div class="menu-item-price">Rp 95.000</div>
+                        </div>
+                        <p class="menu-item-desc">8 buah macaron dengan 4 varian rasa: salted caramel, raspberry, matcha, dan vanilla. Tekstur sempurna.</p>
+                        <span class="menu-item-badge">Premium</span>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 6 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Indonesian Signature Cake Box" class="menu-item-img">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <div class="menu-item-name">Nusantara Cake Box</div>
+                            <div class="menu-item-price">Rp 70.000</div>
+                        </div>
+                        <p class="menu-item-desc">4 potong kue tradisional premium: Bika Ambon, Klepon Cake, Kue Lumpur, dan Pandan Cake. Rasa nostalgia dengan twist modern.</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 7 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Red Velvet Cupcake Set" class="menu-item-img">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <div class="menu-item-name">Red Velvet Cupcake Set</div>
+                            <div class="menu-item-price">Rp 75.000</div>
+                        </div>
+                        <p class="menu-item-desc">6 cupcake red velvet dengan frosting cream cheese tinggi dan garnish. Cocok untuk gift atau acara spesial.</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 8 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1603532646120-3d5c2c724d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Banana Caramel Loaf Cake" class="menu-item-img">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <div class="menu-item-name">Banana Caramel Loaf</div>
+                            <div class="menu-item-price">Rp 65.000</div>
+                        </div>
+                        <p class="menu-item-desc">Loaf cake pisang dengan topping caramel drizzle dan irisan pisang. Moist, wangi, dan tidak terlalu manis.</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 9 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1559620192-032c64bc86af?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Choux Chantilly Box" class="menu-item-img">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <div class="menu-item-name">Choux Chantilly Box</div>
+                            <div class="menu-item-price">Rp 85.000</div>
+                        </div>
+                        <p class="menu-item-desc">10 buah choux (kue sus) kecil berisi krim chantilly. Kulit renyah, krim lembut, rasa sempurna.</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 10 -->
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mini Tiramisu Jar" class="menu-item-img">
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <div class="menu-item-name">Mini Tiramisu Jar</div>
+                            <div class="menu-item-price">Rp 85.000</div>
+                        </div>
+                        <p class="menu-item-desc">2 jar kaca berisi tiramisu layer yang rapi. Rasa kopi dan mascarpone yang seimbang. Kemasan jar bisa dipakai ulang.</p>
+                        <span class="menu-item-badge">Eco-Friendly</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container contact-container">
+            <h2 class="section-title">Pesan Online Sekarang</h2>
+            <p style="max-width: 800px; margin-bottom: 20px; font-size: 18px;">Pesan kue premium kami melalui WhatsApp atau Instagram. Free delivery untuk area Slipi, Palmerah, dan Grogol dengan minimum order Rp 100.000.</p>
+            
+            <div class="contact-info">
+                <!-- WhatsApp -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Order</h3>
+                    <p>Klik tombol di bawah untuk pesan langsung via WhatsApp:</p>
+                    <br>
+                    <a href="https://wa.me/6287898782315?text=Halo%20SliceofHeaven.Slipi,%20saya%20mau%20pesan%20kue" target="_blank" style="background-color: #25D366; color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; font-weight: 600; text-decoration: none;">
+                        <i class="fab fa-whatsapp"></i> 0878-9878-2315
+                    </a>
+                </div>
+                
+                <!-- Instagram -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>Follow dan DM kami untuk info lengkap dan promo:</p>
+                    <br>
+                    <a href="https://instagram.com/sliceofheaven.slipi" target="_blank" style="background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D); color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; font-weight: 600; text-decoration: none;">
+                        <i class="fab fa-instagram"></i> @sliceofheaven.slipi
+                    </a>
+                </div>
+                
+                <!-- Email -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>Untuk pertanyaan kerjasama atau catering:</p>
+                    <br>
+                    <a href="mailto:order.sliceofheaven@gmail.com" style="color: var(--secondary); font-weight: 600;">
+                        order.sliceofheaven@gmail.com
+                    </a>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://instagram.com/sliceofheaven.slipi" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://tiktok.com/@sliceofheaven.slipi" target="_blank" class="social-icon">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://wa.me/6287898782315" target="_blank" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section" id="location">
+        <div class="container">
+            <h2 class="section-title">Lokasi Kami</h2>
+            <div class="location-content">
+                <div class="location-text">
+                    <h3>SliceofHeaven.Slipi</h3>
+                    <p><i class="fas fa-map-marker-alt" style="color: var(--primary); margin-right: 10px;"></i> Jl. Slipi Raya No. 15 (Dekat Mall Plaza Slipi Jaya), Palmerah, Jakarta Barat</p>
+                    <br>
+                    <p><i class="fas fa-clock" style="color: var(--primary); margin-right: 10px;"></i> <strong>Buka Setiap Hari:</strong></p>
+                    <p>Senin - Jumat: 08:00 - 20:00 WIB</p>
+                    <p>Sabtu - Minggu: 09:00 - 21:00 WIB</p>
+                    <br>
+                    <p><i class="fas fa-truck" style="color: var(--primary); margin-right: 10px;"></i> <strong>Gratis Ongkir:</strong> Area Slipi, Palmerah, Grogol (min. order Rp 100.000)</p>
+                    <p><i class="fas fa-shopping-bag" style="color: var(--primary); margin-right: 10px;"></i> <strong>Pick-up Available:</strong> Bisa ambil langsung di tempat kami</p>
+                </div>
+                <div class="location-map">
+                    <p><i class="fas fa-map-marked-alt" style="font-size: 48px; margin-bottom: 15px;"></i><br>Lokasi dekat Mall Plaza Slipi Jaya</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">SliceofHeaven.Slipi</div>
+                <p style="max-width: 600px; margin-bottom: 20px; opacity: 0.9;">Premium Artisan Bakery di jantung Slipi, Jakarta Barat. Setiap potongan adalah pengalaman rasa yang tak terlupakan.</p>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com/sliceofheaven.slipi" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/6287898782315" target="_blank" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 SliceofHeaven.Slipi - Premium Bakery Jakarta Barat. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(window.innerWidth <= 768) {
+                        document.querySelector('nav ul').style.display = 'none';
+                    }
+                }
+            });
+        });
+        
+        // WhatsApp order button function
+        function orderViaWhatsApp(menuName) {
+            const phoneNumber = '6287898782315';
+            const message = `Halo SliceofHeaven.Slipi, saya ingin memesan ${menuName}. Bisa info ketersediaan dan cara pemesanannya?`;
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+        
+        // Add order buttons to menu items
+        document.querySelectorAll('.menu-item').forEach(item => {
+            const menuName = item.querySelector('.menu-item-name').textContent;
+            const button = document.createElement('button');
+            button.innerHTML = '<i class="fas fa-shopping-cart"></i> Pesan Sekarang';
+            button.style.cssText = `
+                background-color: var(--primary);
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 25px;
+                font-weight: 600;
+                cursor: pointer;
+                width: 100%;
+                margin-top: 10px;
+                transition: background-color 0.3s;
+            `;
+            button.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#b8864d';
+            });
+            button.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '#D4A574';
+            });
+            button.addEventListener('click', function() {
+                orderViaWhatsApp(menuName);
+            });
+            item.querySelector('.menu-item-content').appendChild(button);
+        });
+    </script>
+</body>
+</html>
